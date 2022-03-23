@@ -149,19 +149,19 @@ class Transfer_learning_classification():
             print()
 
 
-            time_elapsed = time.time() - since
-            print('Training complete in {:.0f}m {:.0f}s'.format(
-                time_elapsed // 60, time_elapsed % 60))
-            print('Best val Acc: {:4f}'.format(best_acc))
+        time_elapsed = time.time() - since
+        print('Training complete in {:.0f}m {:.0f}s'.format(
+            time_elapsed // 60, time_elapsed % 60))
+        print('Best val Acc: {:4f}'.format(best_acc))
 
 
-            model.load_state_dict(best_model_wts)
-            torch.save(model, self.BEST_MODEL_PATH)
+        model.load_state_dict(best_model_wts)
+        torch.save(model, self.BEST_MODEL_PATH)
 
-            # Save the best model as mlflow object
-            # mlflow.pytorch.log_model(model,"model",registered_model_name=('imageTransferLearning_' + str(date.today().strftime("%d/%m/%Y"))))
-            # load best model weights
-            return model
+        # Save the best model as mlflow object
+        # mlflow.pytorch.log_model(model,"model",registered_model_name=('imageTransferLearning_' + str(date.today().strftime("%d/%m/%Y"))))
+        # load best model weights
+        return model
 
             # TODO add additional metrics per class?
 
